@@ -10,8 +10,8 @@
       ></base-badge>
     </div>
     <div class="actions">
-      <base-button link :to="'coachContactLink'" mode="outline">Contact</base-button>
-      <base-button link :to="'coachDetailsLink'">View Details</base-button>
+      <base-button link :to="coachContactLink" mode="outline">Contact</base-button>
+      <base-button link :to="coachDetailsLink">View Details</base-button>
     </div>
   </li>
 </template>
@@ -26,14 +26,14 @@ export default {
   computed:{
     fullName(){
       return this.firstName + ' ' + this.lastName;
+    },
+    coachContactLink(){
+      return this.$route.path + '/' + this.id + 'contact';
+    },
+    coachDetailsLink(){
+      return this.$route.path + '/' + this.id;
     }
   },
-  coachContactLink(){
-    return this.$route.path + '/' + this.id + 'contact';
-  },
-  coachDetailsLink(){
-    return this.$route.path + '/' + this.id;
-  }
 }
 </script>
 
