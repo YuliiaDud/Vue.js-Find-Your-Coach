@@ -1,5 +1,5 @@
 <template>
-
+  <div>REgisyer</div>
 </template>
 
 <script>
