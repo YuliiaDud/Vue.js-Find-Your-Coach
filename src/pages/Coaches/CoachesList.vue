@@ -5,8 +5,8 @@
   <section>
     <base-card>
       <div class="controls">
-        <button>Refresh</button>
-        <router-link to="/register">Register</router-link>
+        <base-button mode="outline">Refresh</base-button>
+        <base-button link to="/register">Register</base-button>
       </div>
       <ul v-if="hasCoaches">
         <coach-item v-for="coach in filteredCoaches"
@@ -25,9 +25,11 @@
 <script>
 import CoachItem from "../../components/coaches/CoachItem";
 import BaseCard from "../../components/ui/BaseCard";
+import BaseButton from "../../components/ui/BaseButton";
 export default {
   name: "CoachesList",
   components:{
+    BaseButton,
     BaseCard,
     CoachItem
   },
