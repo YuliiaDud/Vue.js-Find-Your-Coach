@@ -11,7 +11,11 @@ const router = createRouter({
     routes:[
         {path: '/', redirect: '/coaches'},
         {path: '/coaches', component: CoachesList},
-        {path: '/coaches/:id', component: CoachDetails,children:[
+        {
+            path: '/coaches/:id',
+            component: CoachDetails,
+            props: true, // ensure that id from the path '/coaches/:id' is passed as a prop
+            children:[
                 {path: 'contact', component: ContactCoach}
             ]},
         {path: '/register', component: CoachRegistration},
