@@ -39,6 +39,7 @@
 import BaseButton from "../ui/BaseButton";
 export default {
   name: "CoachForm",
+  emits: ['submit-data',],
   components: {BaseButton},
   data(){
     return{
@@ -59,7 +60,7 @@ export default {
         rate: this.rate,
         area: this.areas
       }
-      console.log(formData);
+      this.$emit('submit-data', formData);
     }
   }
 }
