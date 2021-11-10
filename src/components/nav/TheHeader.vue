@@ -3,16 +3,38 @@
     <nav>
       <h1><router-link to="/">Find your Coach</router-link></h1>
       <ul>
-        <li><router-link to="/coaches">Coaches</router-link></li>
-        <li><router-link to="/requests">Requests</router-link></li>
+        <li>
+          <router-link to="/coaches">Coaches</router-link>
+        </li>
+        <li v-if="isAuthenticated">
+          <router-link to="/requests">Requests</router-link>
+        </li>
+        <li v-else>
+          <router-link to="/auth">Log in</router-link>
+        </li>
+        <li v-if="isAuthenticated">
+          <base-button @click="logout">Log out</base-button>
+        </li>
       </ul>
     </nav>
   </header>
 </template>
 
 <script>
+import BaseButton from "../ui/BaseButton";
 export default {
-  name: "TheHeader"
+  name: "TheHeader",
+  components: {BaseButton},
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated;
+    }
+  },
+  methods:{
+    logout(){
+      this.$store.dispatch('logout');
+    }
+  }
 }
 </script>
 

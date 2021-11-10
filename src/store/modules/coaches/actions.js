@@ -9,8 +9,10 @@ export default {
             areas: data.areas,
         };
 
+        const token = context.rootGetters.token;
+
         const response = await fetch(
-            `https://main-project-6aa6d-default-rtdb.firebaseio.com/coaches/${userId}.json`,
+            `https://main-project-6aa6d-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` + token,
             {
                 method: 'PUT',
                 body: JSON.stringify(coachData)
