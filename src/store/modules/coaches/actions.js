@@ -28,7 +28,11 @@ export default {
             id: userId
         });
     },
-    async loadCoaches(context) {
+    async loadCoaches(context,payload) {
+        if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+            return;
+        }
+
         const response = await fetch(
             `https://main-project-6aa6d-default-rtdb.firebaseio.com/coaches.json`
         );
