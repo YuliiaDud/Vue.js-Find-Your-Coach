@@ -111,7 +111,7 @@ export default {
         last: this.lastName.val,
         desc: this.description.val,
         rate: this.rate.val,
-        area: this.areas.val
+        areas: this.areas.val
       }
       this.$emit('submit-data', formData);
     }
