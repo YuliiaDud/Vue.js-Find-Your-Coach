@@ -1,4 +1,4 @@
-# main_prj
+# Find Your Coach App
 
 ## Project setup
 ```
